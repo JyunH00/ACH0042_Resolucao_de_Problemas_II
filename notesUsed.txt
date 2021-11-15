@@ -1,0 +1,2 @@
+[Note(note=39, duration=250), Note(note=43, duration=15250), Note(note=68, duration=250)]
+select the suggestion

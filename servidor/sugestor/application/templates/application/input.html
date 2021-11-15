@@ -1,0 +1,32 @@
+
+
+{% block content %}
+
+<h1>Selecione a Sugestão</h1>
+
+
+<h1> Index = {{index}} </h1>
+<table class="table table-sm">
+    <tr>
+        <th>Sugestão</th>
+        <th></th>
+    </tr>
+    {% for sugestao in sugestoes %}
+    <tr>
+        <td>{{sugestao}}</td>
+    </tr>
+    {% endfor %}
+
+
+</table>
+
+<ul>
+
+    <li><a href="{% url 'home' 0 %}">Primeira Sugestão</a></li>
+    <li><a href="{% url 'home' 1 %}">Segunda Sugestão</a></li>
+    <li><a href="{% url 'home' 2 %}">Terceira Sugestão</a></li>
+
+</ul>
+
+
+{% endblock %}

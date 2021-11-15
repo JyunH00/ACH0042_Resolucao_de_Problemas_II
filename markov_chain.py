@@ -33,14 +33,19 @@ class MarkovChain:
         self.sums[from_note] += 1
 
     def get_next(self, seed_note):
+        print("receiving :")
+        print(seed_note)
         if seed_note is None or seed_note not in self.chain:
+            print("here 1")
             random_chain = self.chain[random.choice(list(self.chain.keys()))]
             return random.choice(list(random_chain.keys()))
         next_note_counter = random.randint(0, self.sums[seed_note])
         for note, frequency in self.chain[seed_note].items():
+            print("here 2")
             next_note_counter -= frequency
             if next_note_counter <= 0:
                 return note
+
 
     def merge(self, other):
         assert isinstance(other, MarkovChain)

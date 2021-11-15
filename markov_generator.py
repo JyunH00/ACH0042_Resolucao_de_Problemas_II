@@ -9,12 +9,12 @@ def create_markov(paste, n_music, name_of_out = 'out'):
     final_markov = MarkovChain()
     
     for name in range(1, n_music + 1):
-        chain = Parser2(f'{paste}\{name}.mid').get_chain()
+        chain = Parser2(f'{paste}/{name}.mid').get_chain()
         final_markov.merge(chain)
         
-    Generator.load(final_markov).generate(f'saidas_markov\{name_of_out}.mid')
+    Generator.load(final_markov).generate_paused(f'saidas_markov/{name_of_out}.mid')
     
-    sourceFile = open(f'saidas_markov\{name_of_out}.txt', 'w')
+    sourceFile = open(f'saidas_markov/{name_of_out}.txt', 'w')
     print_markov = final_markov.print_as_matrix()
     print(print_markov, file=sourceFile)
     sourceFile.close()
@@ -24,17 +24,21 @@ def create_markov(paste, n_music, name_of_out = 'out'):
 if __name__ == "__main__":
     
     # Gênero disco
-    
+    """
     final_disc = create_markov('genre_disco', 5, 'out_disco' )
     
+
     # Gênero reggae
     
     final_reggae = create_markov('genre_reggae', 6, 'out_reggae' )
     
+    # Gênero rock
+    final_classic = create_markov('genre_rock', 1, 'out_rock')
+    """
+    """
     # Gênero classico
-    
     final_classic = create_markov('genre_classic', 5, 'out_classic')
-   
+    """
     # Teste com apenas 1 música
     
     final_yiruma = create_markov('genre_yiruma', 1, 'out_yiruma')
