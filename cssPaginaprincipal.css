@@ -1,18 +1,12 @@
   * {
     
-    background-color: #8d1c1c;
+    background-color: #15ff00;
     font-family: "Times New Roman", Arial, Helvetica;
     padding: 0;
     margin: 0;
     
   }
-    
-  #corpo {
 
-    background-color: #ffffff;
-    
-
-  }
 
   a { 
 
@@ -25,7 +19,7 @@
   #cabecalho {
     
     width: 100%;
-    height: 20%;
+    height: 19%;
     border: 0px solid #000000;
     border-radius: 0px 0px 0px 0px;
     box-sizing: border-box;
@@ -33,6 +27,10 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     position: fixed; 
     overflow: auto;
     z-index: 1;
@@ -42,10 +40,10 @@
 
   #botoes{
 
-      background-color: #737373;
+    background: linear-gradient(to right, #1b1b1b, #161616, #030303, #000000);
 
   }
-
+ 
   #botao_login{
 
       background-color: #2f312f;
@@ -59,7 +57,7 @@
       font-size: 16px;
       box-shadow: 0px 0px 10px #383838 inset;
       position: relative;
-      top: 15px;
+      top: 15;
       left: 88%;
       bottom: 0;
       right: 0;
@@ -88,8 +86,8 @@
       font-size: 16px;
       box-shadow: 0px 0px 10px #383838 inset;
       position: relative;
-      top: 20px;
-      left: -10%;
+      top: 20%;
+      left: -5%;
       bottom: 0;
       right: 0;
 
@@ -125,8 +123,8 @@
       font-size: 16px;
       box-shadow: 0px 0px 10px #383838 inset;
       position: relative;
-      top: 35px;
-      left: -10%;
+      top: 30%;
+      left: -4%;
       bottom: 0;
       right: 0;
 
@@ -162,8 +160,8 @@
       font-size: 16px;
       box-shadow: 0px 0px 10px #383838 inset;
       position: relative;
-      top: 35px;
-      left: -10%;
+      top: 30%;
+      left: -3%;
       bottom: 0;
       right: 0;
 
@@ -190,29 +188,35 @@
 
   /* Piano */
 
+ 
   #piano {
 
-    background-color: #000000;
-    width: 100px;
+    background-color: #d8d8d8;
+    height: 2460px; 
     overflow: hidden;
     position: relative;
     border: solid 1px #000000; 
     text-align: right;
-    
-    transform: translateY(5%);
-
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 9.5%;
+    margin-bottom: 15%;
   }
 
   .tecla_branca {
 
     font-size: 11px;
     width: 100px;
-    background-color: #ffffff;
+    height: 30px;
+    background: linear-gradient(to right, #9b9b9b, #f2f2f2, #dbdbdb, #eaeaea);
     color: black;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 40px;
-    padding-right: 40px;
+    padding-right: 5px;
+  
     z-index: 5;
     cursor: pointer;
     border: solid 1px #000000;
@@ -241,12 +245,14 @@
 
     font-size: 11px;
     width: 100px;
-    background-color: #000000;
+    height: 25px;
+    background: linear-gradient(to right, #1b1b1b, #161616, #030303, #000000);
     color: #ffffff;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 40px;
-    padding-right: 40px;
+    padding-right: 5px;
+  
     z-index: 5;
     cursor: pointer;
     border: solid 1px #000000;
@@ -271,37 +277,90 @@
     
   }
 
+
   /* Fim do piano */
 
   /* Piano roll */
 
-  #tela_roll {
 
-    background-color: #000000;
+  .switch {
     position: relative;
-    left: 100px;
-    transform: translateY(-95%);
+    display: inline-block;
+  
+    width: 45px;
+    height: 30px;
+  
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border: solid 1px #000000; 
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #e00606;
+    border: solid 1px #000000; 
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
 
+  .piano_roll {
+
+    background-color: #fffefe;
+    height: 2460px; 
+    position: absolute;
+    border: solid 1px #000000; 
+    text-align: right;
+    top: 0;
+    left: 100px;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 15%;
   }
 
 
+  
   /* Fim do piano roll */
+
+
 
   /* Rodapé */
 
   #rodape {
     
     width: 100%;
-    height: 15%;
+    height: 32%;
     border: 0px solid #000000;
     border-radius: 0px 0px 0px 0px;
     box-sizing: border-box;
-    background-color: #737373;
+    background: linear-gradient(to right, #1b1b1b, #161616, #030303, #000000);
     list-style-type: none;
     margin: 0;
     padding: 0;
     position: fixed;
-    top: 85%;
+    top: 70%;
     left: 0;
     bottom: 0;
     right: 0;
@@ -311,4 +370,6 @@
     
   }
 
-  /* Fim do rodapé */
+   /* Fim do rodapé */
+
+  
