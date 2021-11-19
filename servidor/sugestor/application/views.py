@@ -4,14 +4,26 @@ from django.http import HttpResponse
 
 # Create your views here.
 
+sugestoesUsadas = []
 
 def home(request, index_da_sugestao):
+    if index_da_sugestao.isupper():
+        sugestoesUsadas.append(index_da_sugestao+"--> ")
 
-    sugestoes = ["A","B","C"]
+    sugestoes = ["C#","G","D"]
+
+    
+    possibilidades = ["C","C#","D","E","F","F#","G","G#","A","A#","B"]
+
+
+    indices = ["0","1","2"]
 
     context = {
         "index": index_da_sugestao,
-        "sugestoes": sugestoes
+        "sugestoes": sugestoes,
+        "indices" : indices,
+        "sugestoesUsadas" : sugestoesUsadas,
+        "possibilidades" : possibilidades
     }
     return render(request, 'application/input.html', context)
 

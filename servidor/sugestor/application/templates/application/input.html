@@ -1,32 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    
+</head>
+    <body>
+
+        <div class="container">
+
+            <div class="row">
+                <h3> Teclado </h3>
+            </div>
+
+            <table class="row">
+
+                
+                {% for possibilidade in possibilidades %}
+                <tr>
+                    <td><a class= "btn btn-sm btn-info" href="{% url 'home' possibilidade %}">{{possibilidade}}</a></td>
+                </tr>
+                {% endfor %}
 
 
-{% block content %}
+            </table>
+        </div>
 
-<h1>Selecione a Sugestão</h1>
+        <div class="card card-body">
 
+            <div class="container">
+               
+                
+                <div class="row">
+                    <div class="col">
+                        <h3> Sugestão escolhida anteriormente = {{index}} </h3>
+                    </div>
+                </div>
 
-<h1> Index = {{index}} </h1>
-<table class="table table-sm">
-    <tr>
-        <th>Sugestão</th>
-        <th></th>
-    </tr>
-    {% for sugestao in sugestoes %}
-    <tr>
-        <td>{{sugestao}}</td>
-    </tr>
-    {% endfor %}
+                <div class="row">
+                    <h1>Selecione a Sugestão</h1>
+                </div>
 
+                <div class="btn-group" role="group" aria-label="...">
+                    {% for sugestao in sugestoes %}
+                        <a class= "btn btn-sm btn-info" href="{% url 'home' sugestao %}">{{sugestao}}</a>
+                    {% endfor %}
+                
+                </div>
+                
+            </div>
+            
+        </div>
+        <div class="container">
+            
+            <div class="card card-body">
+                <div>
+                    <div>
+                        <h3>Notas usadas</h3>
+                    </div>
 
-</table>
+                    <table>
+                        <tr>
+                        
+                        {% for sugestao in sugestoesUsadas %}
+                        
+                            <td>{{sugestao}}</td>
+                        
+                        {% endfor %}
+                        </tr>
+        
+                    </table>
+                </div>
+            </div>
+        </div>
 
-<ul>
+        
+        
+        
 
-    <li><a href="{% url 'home' 0 %}">Primeira Sugestão</a></li>
-    <li><a href="{% url 'home' 1 %}">Segunda Sugestão</a></li>
-    <li><a href="{% url 'home' 2 %}">Terceira Sugestão</a></li>
-
-</ul>
-
-
-{% endblock %}
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </body>
+</html>
