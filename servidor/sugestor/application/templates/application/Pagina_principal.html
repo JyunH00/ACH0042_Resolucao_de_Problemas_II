@@ -16,20 +16,54 @@
 
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="{% static '/css/cssPaginaprincipal.css' %}">
+		<script>
+                    
+            function toca_som_teclado(possibilidade) {
+                var nota = document.getElementById(possibilidade)
+                nota.play();
+                if (nota.onclick !== true){
+                    nota.currentTime = 0;
+                }
+                
+            }
 
+            function toca_som_timeline(possibilidade, checkboxElem) {
+                var nota = document.getElementById(possibilidade)
+
+            
+                 if (checkboxElem.checked) {
+                     nota.play()
+
+                    if (nota.onclick !== true){
+                    nota.currentTime = 0;
+                }
+                }    
+            }
+
+            var notesUsed = {{notesUsed|safe}}
+			
+			function pintarTecla(){
+				console.log(notesUsed)
+				
+				for (let i = 0; i<notesUsed.length ;i++) { 
+					if ( notesUsed[i].length > 1 ){
+						document.getElementById(notesUsed[i]).checked = true;
+						console.log(notesUsed[i])
+					}
+				}
+			}
+        </script>
 	
 	</head>
 
 
-    <body>
+    <body onLoad="javascript:pintarTecla()">
 		<div class="main-container">
 
 		
         <div id="cabecalho"> <!-- Cabeçalho -->
 			
 			<!--<div id="botoes"> -->
-				
-				<button type="button" id="botao_login">LOGIN</button>
 
 				<button type="button" id="botao_play">
 					<img src="{% static  'images/playIcon.png' %}"  id ="play_fundo" width="50" height="60">
@@ -51,13 +85,14 @@
 			{% for oitava in possibilidades_com_oitavas %}
 
 				{% for possibilidade in oitava %}
+				<audio id="{{possibilidade}}" src="/static/tecla_sons/{{possibilidade}}.mp3" ></audio>
 					{% if "b" in possibilidade %}
-						<div class="tecla_preta">
-							<div class="texto_teclaP">{{possibilidade}}</div>
+						<div class="tecla_preta" onclick="toca_som_teclado('{{possibilidade}}')">
+							<div class="texto_teclaP" onclick="toca_som_teclado('{{possibilidade}}')">{{possibilidade}}</div>
 						</div>
 					{% else %}
-						<div class="tecla_branca">
-							<div class="texto_teclaB">{{possibilidade}}</div>
+						<div class="tecla_branca" onclick="toca_som_teclado('{{possibilidade}}')">
+							<div class="texto_teclaB" onclick="toca_som_teclado('{{possibilidade}}')">{{possibilidade}}</div>
 						</div>
 					{% endif %}
 				{% endfor %}
@@ -68,25 +103,24 @@
 		<div class="piano_roll"> <!--Piano roll -->
 			
 			<table id="myTable">
-				<form action="" method="post">
+				<form action="" id="sendNotes" method="post" >
 				{% csrf_token %}
 				{% for possibilidade_com_oitava in possibilidades_com_oitavas %}
 					{% for possibilidade in possibilidade_com_oitava %}
 					<tr>
 						{% for tempo in tempos %}
-						<th>
-							<label class="switch">
-								
-								<input type="checkbox" value="{{possibilidade}}-{{tempo}}" id="{{possibilidade}}{{tempo}}" name="notes">
-								<span class="slider" > </span>
-								
-							</label>
-						</th>
+							<th>
+								<label class="switch">
+									
+									<input type="checkbox" value="{{possibilidade}}-{{tempo}}" id="{{possibilidade}}{{tempo}}" name="notes" onchange="toca_som_timeline('{{possibilidade}}', this)">
+									<span class="slider" > </span>
+									
+								</label>
+							</th>
 						{% endfor %}	
 					</tr>
 					{% endfor %}
 				{% endfor %}
-				<button type="submit" id='sugestao1'>Gerar sugestoes</button>
 				</form>
 			
 			</table>
@@ -94,24 +128,28 @@
 
        
 		</div>
-			<div id='area_sugestoes'>
-					
-				<h2 id='titulo_sugestao'>SUGESTÕES</h2>
-				<hr class='linha_sugestao'>
-
-				{% for sugestao in sugestoes %}
-
-					<a  type="button" id='sugestao1' href="{% url 'home' sugestao %}">{{sugestao}}</a>
-
-				{% endfor %}
-
-			</div>
+			
 
 			
 		<div id="rodape"> <!--Rodapé-->
 
-			
+			<div id='area_sugestoes'>
+					
+				<h2 id='titulo_sugestao'>SUGESTÕES</h2>
+				<hr class='linha_sugestao'>
+				
+				<div id='btn-sugestao'>
+					{% for sugestao in sugestoes %}
 
+						<a  type="button" id='sugestao1' href="{% url 'home' sugestao %}">{{sugestao}}</a>
+
+					{% endfor %}
+				</div>
+
+			</div>
+			<div id='generateSugetions' >
+				<button type="submit" form = "sendNotes" id='sugestao1' >Gerar sugestoes</button>
+			</div>
 		</div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
