@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html>
+
+
+	<head>
+	
+		<meta charset="utf-8">
+		
+		<title>Próxima Nota</title>
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="cssPaginaprincipal.css">
+	
+	</head>
+
+
+    <body>
+
+        <div id="cabecalho"> <!-- Cabeçalho -->
+			
+			<div id="botoes">
+				
+				<button type="button" id="botao_login">LOGIN</button>
+
+				<button type="button" id="botao_play">
+					<img src="imagens/play icon.png"  id ="play_fundo" width="50" height="60">
+				</button>
+
+				<button type="button" id="botao_pause">
+					<img src="imagens/pause icon.png" id="pause_fundo"  width="20" height="30">
+				</button>
+
+				<button type="button" id="botao_stop">
+					<img src="imagens/stop icon.png" id="stop_fundo" width="20" height="30">
+				</button>
+				
+			</div>
+			
+		</div>
+
+		<div id="piano"> <!--Piano-->
+
+			<div class="tecla_branca">
+				<div class="texto_teclaB">C8</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">B8</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">A#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">A8</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">G#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">G7</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">F#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">F7</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">E7</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">D#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">D7</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">C#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">C7</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">B7</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">A#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">A7</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">G#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">G6</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">F#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">F6</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">E6</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">D#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">D6</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">C#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">C6</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">B6</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">A#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">A6</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">G#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">G5</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">F#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">F5</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">E5</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">D#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">D5</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">C#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">C5</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">B5</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">A#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">A5</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">G#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">G4</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">F#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">F4</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">E4</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">D#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">D4</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">C#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">C4</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">B4</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">A#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">A4</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">G#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">G3</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">F#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">F3</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">E3</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">D3</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">D#</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">C#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">C3</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">B3</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">A#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">A3</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">G#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">G2</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">F#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">F2</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">E2</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">D#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">D2</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">C#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">C2</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">B2</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">A#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">A2</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">G#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">G1</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">F#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">F1</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">E1</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">D#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">D1</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">C#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">C1</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">B1</div>
+				
+			</div>
+			<div class="tecla_preta">
+				<div class="texto_teclaP">A#</div>
+				
+			</div>
+			<div class="tecla_branca">
+				<div class="texto_teclaB">A1</div>
+				
+			</div>
+			
+		</div>
+
+		<div class="piano_roll"> <!--Piano roll -->
+				 
+				<table style="width:100%" id="botao_roll">
+					<tr>
+					  <th>
+						  <label class="switch">
+							  <input type="checkbox" >
+							  <span class="slider"></span>
+							</label>
+				  
+							<label class="switch">
+							  <input type="checkbox">
+							  <span class="slider"></span>
+							</label>
+				  
+							<label class="switch">
+							  <input type="checkbox">
+							  <span class="slider"></span>
+							</label>
+				  
+							<label class="switch">
+							  <input type="checkbox">
+							  <span class="slider"></span>
+							</label>
+				  
+							<label class="switch">
+							  <input type="checkbox">
+							  <span class="slider"></span>
+							</label>
+				  
+							<label class="switch">
+							  <input type="checkbox">
+							  <span class="slider"></span>
+							</label>
+				  
+							<label class="switch">
+							  <input type="checkbox">
+							  <span class="slider"></span>
+							</label>
+						  
+					  </th>
+					  <tr>
+					  <th>
+						  <label class="switch">
+							  <input type="checkbox">
+							  <span class="slider"></span>
+							</label>
+				  
+							<label class="switch">
+							  <input type="checkbox">
+							  <span class="slider"></span>
+							</label>
+				  
+							<label class="switch">
+							  <input type="checkbox">
+							  <span class="slider"></span>
+							</label>
+				  
+							<label class="switch">
+							  <input type="checkbox">
+							  <span class="slider"></span>
+							</label>
+				  
+							<label class="switch">
+							  <input type="checkbox">
+							  <span class="slider"></span>
+							</label>
+				  
+							<label class="switch">
+							  <input type="checkbox">
+							  <span class="slider"></span>
+							</label>
+				  
+							<label class="switch">
+							  <input type="checkbox">
+							  <span class="slider"></span>
+							</label>
+						  
+					  </th>
+					  </tr>
+				  
+				  </table>
+
+		</div>
+
+		<div id="rodape"> <!--Rodapé-->
+
+			
+
+		</div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    </body>
+
+
+
+
+
+</html>
