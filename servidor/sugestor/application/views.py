@@ -39,21 +39,66 @@ teste = TestFile()
 
 """
 
+notesUsed = []
+
+sugestoes = []
+
 
 def home(request, index_da_sugestao):
 
+    # GERAR SUGESTÕES INICIAIS DA MUSICA
+    if markov_generator.counter == 0:
+        markov_generator.getNextThereeSugestions()
+        markov_generator.counter +=1
+
+    # GRAVAR NOTAS JÁ USADAS
     form = MyForm(request.POST or None)
-
     if request.method == "POST":
-       notesUsed = request.POST.getlist('notes')
+       for note in request.POST.getlist('notes'):
+           if markov_generator.counter != 0 :
+               splited = note.split("-")
+               notesUsed.append("".join(splited[0:2]))
+               
        print(notesUsed)
+       markov_generator.counter +=1
     
-    suggestions = markov_generator.getNextThereeSugestions()
-    print(suggestions)
+    # SETAR SUGESTÃO UTILIZADA
+    if index_da_sugestao != "favicon.ico" and index_da_sugestao != markov_generator.lastNoteUsed and markov_generator.counter != 0:
 
-    sugestoes = suggestions 
+        print("SETANDO SUGESTÃO USADA")
+         
 
-    markov_generator.setSugestionToUse("0")
+        sugestoesGeradas = markov_generator.getLastPastSugestions()
+        print("ESSA FOI AS ULTIMAS SUGERIDAS : "+str(markov_generator.getLastPastSugestions()))
+        print("ESSA FOI A ULTIMA NOTA SELECIONADA "+index_da_sugestao)
+        count = 0
+
+        splited = index_da_sugestao.split("-")
+        converted = "".join(splited)
+
+        notesUsed.append(converted)
+        indexAUsar = -1
+        for sugestoesGerada in sugestoesGeradas:
+            
+            if sugestoesGerada == index_da_sugestao:
+                indexAUsar = count
+            count += 1
+
+        markov_generator.lastNoteUsed = index_da_sugestao
+        
+        print("EU VOU USAR ESSE INDEX "+str(indexAUsar))
+        print("ULTIMA NOTA USADA "+markov_generator.lastNoteUsed)
+        
+        if indexAUsar != -1:
+            markov_generator.setSugestionToUse(str(indexAUsar))
+        else:
+            markov_generator.setSugestionToUse("-1")
+
+        
+
+        # GERAR PROXIMAS SUGESTÕES
+        markov_generator.getNextThereeSugestions()
+    
 
     possibilidades = ["B", "Bb","A","Ab","G","Gb","F","E","Eb","D","Db","C"]
     possibilidades_com_oitavas = criarPossibilidadesDeOitavas(possibilidades)
@@ -61,10 +106,11 @@ def home(request, index_da_sugestao):
     tempos = [ 1,2,3 ]
     indices = ["0","1","2"]
 
-    
+    print("NOTAS USADAS ")
+    print(notesUsed)
 
     context = {
-        "sugestoes": sugestoes,
+        "sugestoes": markov_generator.getLastPastSugestions(),
         "indices" : indices,
         "sugestoesUsadas" : sugestoesUsadas,
         "possibilidades" : possibilidades,
@@ -74,18 +120,4 @@ def home(request, index_da_sugestao):
     
     
     return render(request, 'application/Pagina_principal.html', context)
-    
-def addition(request):
-
-    num1 = request.POST['num1']
-    num2 = request.POST['num2']
-
-    if num1.isdigit() and num2.isdigit():
-        a = int(num1)
-        b = int(num2)
-        res = a + b
-
-        return render(request, "result.html", {"result": res})
-    else:
-        res = "Only digits are allowed"
-        return render(request, "result.html", {"result": res})
+ 

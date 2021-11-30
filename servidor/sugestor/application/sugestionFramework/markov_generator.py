@@ -9,15 +9,19 @@ class Markov_generator:
     def __init__(self):
         self.final_markov = MarkovChain()
         self.name_of_out = ""
-
+        self.counter = 0
         self.initCoversionMaps()
+        self.lastSuggestionsUsed = []
+        self.lastNoteUsed = ""
 
     def initCoversionMaps(self):
         self.numberToOctavesMap = {}
         self.numberToNotesMap = {}
         noteNumbers = [i for i in range(12,108)]
 
-        notesInLetters = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"]
+        #notesInLetters = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"]
+        notesInLetters = ["C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B"]
+    
 
         octaveCounterNotes = 0
         octaveCounterTones = 1
@@ -29,7 +33,7 @@ class Markov_generator:
                 octaveCounterTones += 1
             self.numberToOctavesMap[noteNumber] = str(octaveCounterTones)
             octaveCounterNotes += 1
-        
+
         notesCounter = 0
         # Note to number map
         for noteNumber in noteNumbers:
@@ -42,14 +46,13 @@ class Markov_generator:
             self.numberToNotesMap[noteNumber] = note
             notesCounter += 1
 
-
     def create_markov(self,paste, n_music, name_of_out = 'out'):
 
         testePath = '/home/sonia/Documentos/ACH0042_Resolucao_de_Problemas_II/servidor/sugestor/application/sugestionFramework/genre_yiruma/1.mid'
-        
+        toAdd = 'application/sugestionFramework/'
         for name in range(1, n_music + 1):
-            #chain = Parser2(f'{paste}/{name}.mid').get_chain()
-            chain = Parser2(testePath).get_chain()
+            chain = Parser2(f'{toAdd}/{paste}/{name}.mid').get_chain()
+            #chain = Parser2(testePath).get_chain()
             self.final_markov.merge(chain)
             
         #Generator.load(final_markov).generate_paused_test(f'saidas_markov/{name_of_out}.mid')
@@ -93,10 +96,12 @@ class Markov_generator:
     
     def setSugestionToUse(self, index):
         self.generator.setSugestionToUse(index)
+
+    def getLastPastSugestions(self):
+        return self.lastSuggestionsUsed
     
     def getNextThereeSugestions(self):
-        onlyNotes = self.getOnlyNotes(self.generator.getNextSugestions())
-        return onlyNotes
+        self.lastSuggestionsUsed = self.getOnlyNotes(self.generator.getNextSugestions())
     
     def saveMidiAs(self):
         self.generator.saveMidi(f'application/sugestionFramework/saidas_markov/{self.name_of_out}.mid')

@@ -86,7 +86,7 @@
 					</tr>
 					{% endfor %}
 				{% endfor %}
-				<button type="submit">Submit</button>
+				<button type="submit" id='sugestao1'>Gerar sugestoes</button>
 				</form>
 			
 			</table>
@@ -99,12 +99,11 @@
 				<h2 id='titulo_sugestao'>SUGESTÕES</h2>
 				<hr class='linha_sugestao'>
 
+				{% for sugestao in sugestoes %}
 
-				<button type="button" id='sugestao1' >TESTE</button>
+					<a  type="button" id='sugestao1' href="{% url 'home' sugestao %}">{{sugestao}}</a>
 
-				<button type="button" id='sugestao2' >TESTE</button>
-
-				<button type="button" id='sugestao3' >TESTE</button>
+				{% endfor %}
 
 			</div>
 
