@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+	<head>
+	
+        <meta charset="UTF-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<title>Navegação- Proxima Nota</title>
+	
+		<link rel="stylesheet" type="text/css" href="{% static '/css/cssNavegacao.css' %}">>
+		
+	</head>
+	
+	<body>
+
+        <img src="{% static '/images/Logo 5.png' %}" alt="logo" id="logo"> 
+        
+        <hr class="pauta">
+        <hr class="pauta">
+        <hr class="pauta">
+        <hr class="pauta">
+        <hr class="pauta">
+
+        <h1 id="titulo">Olá, o que você quer fazer?</h1>
+
+        <div id="botoes">
+
+            <button class="botao" type="button" onclick="location.href='/login/';">Fazer Login</button>
+            
+            <button class="botao" type="button" onclick="location.href='/A'">Quero compor!</button>
+
+        </div>
+        
+
+	</body>
+	
+</html>

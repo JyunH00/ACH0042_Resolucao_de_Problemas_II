@@ -1,0 +1,163 @@
+* {
+    
+    background-color: #f7f7f7;
+    font-family: "Times New Roman", Arial, Helvetica;
+    padding: 0;
+    margin: 0;
+    
+  }
+
+
+  a { 
+
+    font-size: 15px;
+
+  }
+
+#logo {
+
+width: 400px;
+position: relative;
+z-index: 2;
+background-color: transparent;
+
+}
+
+.pauta {
+
+position: relative;
+top: -98px;
+padding-top: 10.5px;
+z-index: 1;
+background-color: transparent;
+
+}
+
+#titulo {
+
+    width: 400px;
+    height: 50px;
+    background-color: #E23C52;
+    display: block;
+    padding-left: 10px;
+    margin-top: -30px;
+    
+    }
+
+h1 {
+     
+    color: #f7f7f7;
+    font-family: 'Candara';
+    font-size: 40px;
+    font-weight: normal;
+    line-height: 48px;
+    margin: 0;
+    margin-top: 20px;
+    margin-left: 200px;
+}
+
+h2 {
+
+    font-family: 'Candara';
+    color: #ee102e;
+
+}
+
+#perguntas_bigfive {
+	
+position: relative;
+margin-top: 80px;
+margin-left: 200px;
+
+
+
+}
+
+/* The container */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default radio button */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #e7e5e5;
+    border-radius: 50%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #E23C52;
+  }
+
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+.container .checkmark:after {
+      top: 9px;
+      left: 9px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #cccccc;
+  }
+
+  .botao{
+
+    width: 100px;
+    background-color: #E23C52;
+    border: 2px solid #000000;
+    border-radius: 12px;
+    font-family: 'Candara';
+    color: #f7f7f7;
+    padding: 10px 20px;
+    margin-top: 100px;
+    margin-left: 60px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    position: relative;
+    left: 60%;
+
+}
+
+.botao:hover {background-color: #dd1e38}
+
+.botao:active {background-color: #f50928}

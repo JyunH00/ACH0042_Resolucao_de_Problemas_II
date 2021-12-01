@@ -1,0 +1,112 @@
+* {
+    
+    background-color: #f7f7f7;
+    font-family: "Times New Roman", Arial, Helvetica;
+    padding: 0;
+    margin: 0;
+    
+  }
+
+
+  a { 
+
+    font-size: 15px;
+
+  }
+
+#logo {
+
+width: 400px;
+position: relative;
+z-index: 2;
+background-color: transparent;
+
+}
+
+.pauta {
+
+position: relative;
+top: -98px;
+padding-top: 10.5px;
+z-index: 1;
+background-color: transparent;
+
+}
+
+#titulo {
+
+    width: 470px;
+    height: 50px;
+    background-color: #E23C52;
+    display: block;
+    padding-left: 10px;
+    margin-top: 0px;
+    margin-bottom: -10px;
+    position: relative;
+    top: -60px;
+	margin-left: auto; 
+	margin-right: auto;
+    
+    }
+
+h1 {
+     
+    color: #f7f7f7;
+    font-family: 'Candara';
+    font-size: 40px;
+    font-weight: normal;
+    line-height: 48px;
+    margin: 0;
+    margin-top: 20px;
+    margin-left: 200px;
+}
+
+h2 {
+
+    font-family: 'Candara';
+    color: #ee102e;
+
+}
+
+
+#botoes {
+
+    width: 800px;
+    margin-top: 5%;
+    border: 5px solid #000000;
+    border-radius: 12px;
+    position: relative;
+    top: -60px;;
+    background-image: url("/static/images/Background 5.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.botao{
+
+    width: 500px;
+    background-color: #E23C52;
+    border: 5px solid #000000;
+    border-radius: 12px;
+    font-family: 'Candara';
+    color: #f7f7f7;
+    padding: 10px 20px;
+    margin-top: 100px;
+    margin-left: 60px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    position: relative;
+    left: 80px;
+    bottom: 40px;
+
+}
+
+.botao:hover {background-color: #dd1e38}
+
+.botao:active {background-color: #f50928}

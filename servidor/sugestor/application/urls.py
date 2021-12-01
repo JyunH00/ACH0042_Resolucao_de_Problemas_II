@@ -7,4 +7,7 @@ urlpatterns = [
     #path('sub',views.subtraction, name='sub'),
     #path('multi',views.multiplication, name='multi'),
     #path('div',views.division, name='div')
+    path('login/', views.login, name='login'),
+    path('', views.nav, name='nav'),
+    path('perfil/', views.perfil, name='perfil')
 ]

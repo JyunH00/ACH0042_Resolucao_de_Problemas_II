@@ -131,3 +131,15 @@ def home(request, index_da_sugestao):
     
     return render(request, 'application/Pagina_principal.html', context)
  
+ 
+def login(request): 
+     
+  return render(request, 'application/Login.html')
+ 
+def nav(request): 
+     
+  return render(request, 'application/Navegacao.html')
+ 
+def perfil(request):
+     
+  return render(request, 'application/CriacaoPerfil.html')
